@@ -51,6 +51,17 @@
 #include <Adafruit_TLC5947.h>
 #endif
 
+#if USE_Hx711
+#include <hx711.h>
+#endif
+
+#if USE_Encoder
+#include <Encoder.h>
+#endif
+
+#if USE_RGBLED
+#include <RGBLED.h>
+#endif
 
 #include "MCP41xxxClass.h"
 #include "BaseClass.h"
@@ -81,6 +92,10 @@
 #include "EspClass.h"
 #include "UltrasonicClass.h"
 #include "ColorSensorClass.h"
+
+#include "Hx711Class.h"
+#include "EncoderClass.h"
+#include "RGBLEDClass.h"
 
 using namespace nanpy;
 
@@ -113,6 +128,10 @@ void setup() {
     REGISTER_CLASS_CONDITIONAL(WireClass, USE_Wire);
     
     REGISTER_CLASS_CONDITIONAL(TLC5947Class, USE_TLC5947);
+
+    REGISTER_CLASS_CONDITIONAL(Hx711Class, USE_Hx711);
+    REGISTER_CLASS_CONDITIONAL(EncoderClass, USE_Encoder);
+    REGISTER_CLASS_CONDITIONAL(RGBLEDClass, USE_RGBLED);
 
     REGISTER_CLASS_CONDITIONAL(nanpy::EspClass, USE_ESP);
 
