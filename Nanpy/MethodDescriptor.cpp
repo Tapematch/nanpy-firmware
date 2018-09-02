@@ -58,6 +58,10 @@ int nanpy::MethodDescriptor::getInt(int n) {
     return atoi(this->stack[n]);
 };
 
+long nanpy::MethodDescriptor::getLong(int n) {
+    return atol(this->stack[n]);
+};
+
 byte nanpy::MethodDescriptor::getByte(int n) {
     return byte(getInt(n));
 };
